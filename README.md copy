@@ -1,0 +1,48 @@
+A comprehensive cricket analytics platform with real-time data, player statistics, and advanced analytics.
+1. **Activate virtual environment:**
+   ```bash
+   source cricket_env/bin/activate
+   ```
+
+2. **Install dependencies:**
+   ```bash
+   pip install -r backend/requirements.txt
+   ```
+
+3. **Run the backend:**
+   ```bash
+   python backend/app.py
+   ```
+
+4. **Access the application:**
+   - Backend API: http://localhost:5000
+   - Health Check: http://localhost:5000/api/health
+   - Frontend: Open frontend/index.html in browser
+
+## 📁 Project Structure
+
+```
+cricket-analytics-dashboard/
+├── backend/
+│   ├── app.py              # Flask application
+│   ├── requirements.txt    # Python dependencies
+│   ├── models/            # Database models
+│   ├── routes/            # API routes
+│   └── services/          # External API services
+├── frontend/
+│   ├── index.html         # Main dashboard
+│   ├── css/              # Stylesheets
+│   └── js/               # JavaScript files
+├── cricket_env/           # Virtual environment
+└── .env                  # Environment variables
+```
+
+## 🔧 Next Steps
+
+- [ ] Get Cricket API key
+- [ ] Set up PostgreSQL database
+- [ ] Implement live match data
+- [ ] Build interactive dashboard
+- [ ] Add player statistics
+- [ ] Deploy to production
+
