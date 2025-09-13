@@ -9,7 +9,7 @@ app = Flask(__name__)
 CORS(app)
 
 # Database setup
-DATABASE = 'cricket_analytics.db'
+DATABASE = '/tmp/cricket_analytics.db'
 
 def init_db():
     """Initialize the database with required tables"""
@@ -752,21 +752,12 @@ def internal_error(error):
 if __name__ == '__main__':
     # Initialize database
     init_db()
-    print("🏏 Cricket Analytics API Starting...")
+    
+    # Get port from environment variable (Render provides this)
+    port = int(os.environ.get('PORT', 10000))
+    
+    print(f"🏏 Cricket Analytics API Starting on port {port}...")
     print("📊 Database initialized with sample data")
-    print("🌐 Cricket Data API integrated with key: b474660e-4eed-4355-a381-6d24bc1a0ca5")
     
-    # Get local IP address
-    import socket
-    hostname = socket.gethostname()
-    local_ip = socket.gethostbyname(hostname)
-    
-    print(f"🚀 Server running on:")
-    print(f"   • Local: http://localhost:8000")
-    print(f"   • Network: http://{local_ip}:8000")
-    print("📖 API Documentation available at above URLs")
-    print("\n📱 Others can access via your network IP address")
-    print(f"   Share this URL: http://{local_ip}:8000")
-    
-    # Run the app on port 8000, accessible from network
-    app.run(debug=True, host='0.0.0.0', port=8000)
+    # Bind to 0.0.0.0 and use the PORT environment variable
+    app.run(debug=False, host='0.0.0.0', port=port)
