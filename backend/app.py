@@ -13,7 +13,6 @@ DATABASE = '/tmp/cricket_analytics.db'
 
 def init_db():
     """Initialize the database with required tables"""
-init_db()
     conn = sqlite3.connect(DATABASE)
     cursor = conn.cursor()
     
@@ -82,6 +81,7 @@ init_db()
     
     conn.commit()
     conn.close()
+init_db()
 
 def calculate_strike_rate(runs, balls):
     """Calculate strike rate"""
