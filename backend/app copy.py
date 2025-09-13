@@ -631,22 +631,7 @@ def get_player_analytics():
 
 @app.route('/', methods=['GET'])
 def home():
-    """Serve the cricket analytics dashboard"""
-    try:
-        # Try to read the dashboard HTML file
-        with open('../frontend/dashboard.html', 'r') as f:
-            dashboard_html = f.read()
-        return dashboard_html
-    except FileNotFoundError:
-        return '''
-        <h1>Dashboard Not Found</h1>
-        <p>Please make sure dashboard.html exists in the frontend folder.</p>
-        <p><a href="/api-docs">View API Documentation</a></p>
-        '''
-
-@app.route('/api-docs', methods=['GET'])
-def api_documentation():
-    """API documentation page"""
+    """Home page with API documentation"""
     api_docs = '''
     <html>
     <head>
@@ -708,13 +693,21 @@ def api_documentation():
             <div class="endpoint">
                 <span class="method">GET</span> <code>/api/dashboard/analytics</code> - Get player analytics
             </div>
+            
+            <h2>Usage</h2>
+            <p>All endpoints return JSON responses with the following structure:</p>
+            <pre><code>{
+    "success": true/false,
+    "data": {...},
+    "message": "...",
+    "count": number
+}</code></pre>
         </div>
     </body>
     </html>
     '''
     return api_docs
 
-   
 @app.route('/health', methods=['GET'])
 def health_check():
     """Health check endpoint"""
