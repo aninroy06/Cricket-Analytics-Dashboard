@@ -13,6 +13,7 @@ DATABASE = '/tmp/cricket_analytics.db'
 
 def init_db():
     """Initialize the database with required tables"""
+init_db()
     conn = sqlite3.connect(DATABASE)
     cursor = conn.cursor()
     
@@ -629,7 +630,7 @@ def get_player_analytics():
 
 # ============ UTILITY ENDPOINTS ============
 
-@app.route('/', methods=['GET'])
+@app.route('/')
 def home():
     """Serve the cricket analytics dashboard"""
     try:
