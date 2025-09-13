@@ -635,7 +635,7 @@ def home():
     """Serve the cricket analytics dashboard"""
     try:
         # Try to read the dashboard HTML file
-        with open('../templates/dashboard.html', 'r') as f:
+        with open('templates/dashboard.html', 'r') as f:
             dashboard_html = f.read()
         return dashboard_html
     except FileNotFoundError:
